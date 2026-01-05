@@ -46,11 +46,11 @@ function App() {
               <br />
               и <span style={{ color: "#4824ff" }}>уникальный</span>
               <br />
-              дизайн под ваши запросы
+              разработка под ваши запросы
             </h2>
             
             <h3>
-              Занимаемся веб-дизайном
+              Занимаемся веб-разработкой
               <br />
               на протяжении <span style={{ color: "#4824ff" }}>9 лет</span>
             </h3>
@@ -62,6 +62,35 @@ function App() {
               draggable="false" 
             />
           </div>
+        </div>
+        <div className="service-block" draggable="false">
+          <h1 style={{ fontSize: "52px" }}>УСЛУГИ</h1>
+          <p style={{ fontSize: "27px" }}>Coздаём
+            <span style={{ color: "#4824ff" }}> разработки 
+              </span> по следующим направлениям: </p>
+
+          <div style={{ display: "flex" }}>
+            <p className="tag"><p className="tag-icon"/>
+            Рекламные лендинги</p>
+            <p className="tag"><p className="tag-icon"/>
+            Веб-порталы</p>
+            <p className="tag"><p className="tag-icon"/>
+            Веб-приложения</p>
+            <p className="tag"><p className="tag-icon"/>
+            Мониторинг</p>
+          </div>
+          <div style={{ display: "flex", marginTop: "16px" }}>
+            <p className="tag"><p className="tag-icon"/>
+            Работа с базами данных</p>
+            <p className="tag"><p className="tag-icon"/>
+            Доработка ваших решений</p>
+          </div>
+
+          <p style={{ fontSize: "27px" }}>Открыты для обсуждения
+            создания дизайна и по другим направлениям. <br/>
+            Детальней готовы обсудить при
+            <span style={{ color: "#4824ff", cursor: "pointer" }}
+            onClick={handleOpenModal}> личной переписке</span> .</p>
         </div>
     </div>
   );

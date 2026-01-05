@@ -190,3 +190,33 @@ header  a:hover {
   object-fit: contain;
   display: block;
 }
+
+.service-block {
+  height: 500px;
+  margin-left: -5vw;
+  margin-right: -5vw;
+  padding: 0 5vw;
+  background: #fbfaff;
+  align-content: center;
+}
+
+.service-block .tag {
+  display: flex;
+  font-size: 24px;
+  font-weight: 500;
+  background: #eeebff;
+  color: #4824ff;
+  margin: 0 12px 0 0;
+  padding: 8px 22px 8px 8px;
+  border-radius: 24px;
+}
+
+.service-block .tag .tag-icon {
+  margin: -10px;
+  padding: 0;
+  position: relative;
+  content: url(/public/icons/check.png);
+  background: none;
+  scale: 0.33;
+  height: 50px;
+}
