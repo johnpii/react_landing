@@ -1,0 +1,109 @@
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    z-index: 1000;
+}
+
+.modal-backdrop.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    position: relative;
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    width: 500px;
+    height: 285px;
+    transform: translateY(-50px);
+    transition: transform 0.5s ease;
+    z-index: 1001;
+}
+
+.modal-backdrop.show .modal-content {
+    transform: translateY(0);
+}
+
+.modal-close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0;
+    outline: none;
+}
+
+.modal-close-button::before,
+.modal-close-button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 2px;
+    background-color: #333;
+}
+
+.modal-close-button::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.modal-close-button::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.social-button {
+    align-items: center;
+    display: flex;
+    height: 55px;
+    width: 220px;
+    border-radius: 55px;
+    background: black;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-right: 2%;
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    justify-content: center; /* Добавлено для центрирования */
+    gap: 10px; /* Добавлено для отступа между иконкой и текстом */
+}
+
+.social-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-icon.telegram {
+    background: url(/public/icons/telegram_svg.svg) no-repeat center;
+    background-size: contain;
+}
+
+.social-icon.whatsapp {
+    background: url(/public/icons/whatsapp_svg.svg) no-repeat center;
+    background-size: contain;
+}
+
+.social-button:hover {
+    background: #4824ff;
+    filter: drop-shadow(0px 0px 35px #4824ff40);
+    color: #eeebff;
+}

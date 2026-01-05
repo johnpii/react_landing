@@ -1,8 +1,15 @@
+@font-face {
+  font-family: 'Onest';
+  src: url("/public/Onest-Regular.ttf");
+}
+
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: 'Onest';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -10,4 +17,176 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+header {
+  display: flex;
+  height: 100px;
+  place-items: center;
+}
+
+.menu {
+  height: 100px;
+  width: 100%;
+  align-content: center;
+}
+
+header a {
+  font-size: 18px;
+  font-weight: 500;
+  margin-right: 3%;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+header  a:hover {
+  color: #4824ff;
+  filter:drop-shadow(0px 0px 50px #4824ff);
+}
+
+.btn {
+  height: 55px;
+  width: 222px;
+  border-radius: 55px;
+  background: #4824ff;
+  border: none;
+  color: white;
+  font-weight: 500;
+  font-size: 18px;
+  transition: 0.5s ease-in-out;
+  overflow: hidden;
+  margin-right: 2%;
+  cursor: pointer;
+  outline: none;
+}
+
+.btn:hover {
+  filter: drop-shadow(0px 0px 35px #4824ff40);
+}
+
+.btn:before {
+  content: '';
+  position: absolute;
+  height: 300px;
+  width: 30px;
+  background: #ffffffbd;
+  filter: blur(2px);
+  transition: 1.5s;
+  transform: rotate(-20deg) translateX(-50px) translateY(-200px);
+}
+
+.btn:hover:before {
+  transform: rotate(-20deg) translateX(200px);
+}
+
+.icon {
+  height: 55px;
+  border-radius: 50%;
+  background: black;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-right: 2%;
+}
+
+.icon.telegram {
+  content: url(/public/icons/telegram_png.png);
+}
+
+.icon.whatsapp {
+  content: url(/public/icons/whatsapp_png.png);
+}
+
+.icon:hover {
+  background: #4824ff;
+  filter: drop-shadow(0px 0px 35px #4824ff40);
+}
+
+.switch {
+  width: 135px;
+  height: 55px;
+  border-radius: 55px;
+  background-color: #eeebff;
+  overflow: hidden;
+}
+
+.theme {
+  margin: 2px;
+  width: 51px;
+  height: 51px;
+  border-radius: 55px;
+  background-color: rgb(255, 255, 255);
+  filter: invert();
+  transition: 0.5s ease-in-out;
+}
+
+.theme.light {
+  content: url(/public/icons/sun-symbol.svg);
+}
+
+.switch:hover > .theme.theme.light {
+  transform: rotate(45deg);
+
+}
+
+.welcome-block {
+  height: 650px;
+  display: flex;
+  place-items: center;
+}
+
+.welcome-block h1 {
+  font-size: 52px;
+}
+
+.welcome-block h2 {
+  font-size: 42px;
+  font-weight: 450;
+}
+
+.welcome-block h3 {
+  font-size: 30px;
+  font-weight: 300;
+}
+
+.title {
+  background: linear-gradient(to right,
+    #4824ff,
+    #4824ff,
+    #85ebff,
+    #eeebff,
+    #85aeff,
+    #4824ff,
+    #4824ff,
+    #4824ff);
+  background-clip: text;
+  color: transparent;
+  background-size: 200%;
+  animation: gradientAnimation 5s linear infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 200% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.welcome-block .first-block {
+  align-content: center;
+  width: 55%;
+}
+
+.main-image-box {
+  width: 45%;
+  margin-top: -3%;
+}
+
+.main-image-box img {
+  max-width: 100%;
+  max-height: 500px;
+  height: auto;
+  object-fit: contain;
+  display: block;
 }
