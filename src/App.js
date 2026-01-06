@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect, useRef} from "react";
 import ModalWindow from './ModalWindow';
 import AllGallery from "./AllGallery";
 import Adds from "./Adds";
@@ -7,6 +7,7 @@ import WebPortals from "./WebPortals";
 import DBs from "./DBs";
 import Finishing from "./Finishing";
 import Monitoring from "./Monitoring";
+import Review from "./Review";
 
 function App() {
   const [showModal, setShowModal] = useState(false);
@@ -40,6 +41,73 @@ const renderComponent = () => {
   const handleCloseModal = () => {
     setShowModal(false)
   }
+
+  const containerRef = useRef(null);
+  const reviewWidthRef = useRef(0);
+
+  const reviews = [
+    <Review 
+      key={1} 
+      name="Константин М." 
+      link="https://t.me"
+      text="Текст отзыва, оставленный который можно открыть нажав на кнопку в правом верхнем углу этого блока."
+    />,
+    <Review 
+      key={2} 
+      name="Максим Л." 
+      link="https://t.me"
+      text="Отзыв оставленный Максимом" 
+    />,
+    <Review 
+      key={3} 
+      name="Вячеслав К." 
+      link="https://t.me"
+      text="Отзыв оставленный Вячеславом" 
+    />
+  ];
+
+  const visibleReviews = 3;
+
+  const handleScroll = () => {
+    const box = containerRef.current;
+    const width = reviewWidthRef.current * visibleReviews;
+
+    if (box.scrollLeft <= 0) {
+      box.style.scrollBehavior = 'auto';
+      box.scrollLeft = box.scrollWidth - 2 * width;
+      box.style.scrollBehavior = 'smooth';
+    }
+
+    if (box.scrollLeft >= box.scrollWidth - width) {
+      box.style.scrollBehavior = 'auto';
+      box.scrollLeft = width;
+      box.style.scrollBehavior = 'smooth';
+    }
+  };
+
+  const btnPrevReview = () => {
+    const box = containerRef.current;
+    box.scrollLeft -= reviewWidthRef.current;
+    };
+
+  const btnNextReview = () => {
+    const box = containerRef.current;
+    box.scrollLeft += reviewWidthRef.current;
+  };
+
+  useEffect(() => {
+    const box = containerRef.current;
+    const firstReview = box.querySelector('.review-card');
+    reviewWidthRef.current = firstReview.clientWidth;
+    const width = reviewWidthRef.current * visibleReviews;
+
+    box.scrollLeft = (box.scrollWidth - width) / 2;
+    box.addEventListener('scroll', handleScroll);
+
+    return () => {
+      box.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <div className="App">
@@ -182,6 +250,35 @@ const renderComponent = () => {
 
           <div className="content" style={{ marginLeft: "-5vw", marginRight: "-5vw" }}>
             {renderComponent()}
+          </div>
+        </div>
+
+        <div className="review-block">
+          <h1>ОТЗЫВЫ</h1>
+          <p className="description">
+            Отзывы клиентов, написанные со своих
+            <span className="selecting"> личных аккаунтов </span>
+            Телеграм. Всё проверено! <br /> Любой отзыв
+            можно <span className="selecting"> открыть </span> в
+            Телеграм и <span className="selecting"> спросить </span> об
+            впечатлениях работы с нами <br />
+            у создателя отзыва лично.
+          </p>
+
+          <div className="review-carousel">
+            <div className="review-container" ref={containerRef}>
+              {reviews.slice(-visibleReviews)}
+              {reviews}
+              {reviews.slice(0, visibleReviews)}
+            </div>
+          </div>
+
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <p className="next-button"
+            style={{ transform: "rotate(180deg)" }}>
+            <p className="array-next-icon" onClick={btnPrevReview}/></p>
+            <p className="next-button">
+            <p className="array-next-icon" onClick={btnNextReview}/></p>
           </div>
         </div>
     </div>
