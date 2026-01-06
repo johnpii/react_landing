@@ -3,6 +3,11 @@
   src: url("/public/Onest-Regular.ttf");
 }
 
+@font-face {
+  font-family: 'Prata';
+  src: url("/public/Prata-Regular.ttf");
+}
+
 
 body {
   margin-left: 5%;
@@ -219,4 +224,82 @@ header  a:hover {
   background: none;
   scale: 0.33;
   height: 50px;
+}
+
+.portfolio-block {
+  height: auto;
+}
+
+.portfolio-block .first-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.portfolio-block .main-title {
+  font-size: 56px;
+  font-family: "Prata";
+  font-weight: 500;
+  background: linear-gradient(to right, black, #4824ff);
+  background-clip: text;
+  color: transparent;
+}
+
+.portfolio-block .array-icon {
+  margin: 0 20px;
+  padding: 0;
+  width: 75px;
+  filter: drop-shadow(20px 20px 15px #4824ff25);
+}
+
+.portfolio-block .title-border {
+  font-size: 56px;
+  font-family: "Prata";
+  font-weight: 500;
+  color: white;
+  margin: 10px 0;
+  text-shadow:
+    -1px -1px 0 #4824ff30,
+    1px  -1px 0 #4824ff30,
+    -1px  1px 0 #4824ff30,
+    1px   1px 0 #4824ff30;
+}
+
+.gradient-part-one {
+  position: absolute;
+  background: linear-gradient(to right, transparent, white);
+  color: transparent;
+  height: 70px;
+  width: 200px;
+}
+
+.gradient-part-two {
+  position: absolute;
+  background: linear-gradient(to left, transparent, white);
+  color: transparent;
+  height: 70px;
+  width: 200px;
+}
+
+.portfolio-block .tag {
+  background: #eeebff;
+  color: #4824ff;
+  margin: 0 12px 0 0;
+  padding: 8px 22px;
+  border-radius: 24px;
+  border: 1px solid #eeebff;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+
+.portfolio-block .tag:hover {
+  background: #4824ff;
+  color: white;
+  filter: drop-shadow(0px 0px 30px #4824ff25);
+}
+
+.portfolio-block .selected {
+  background: #04001a;
+  color: white;
+  border: 1px solid #4824ff;
 }

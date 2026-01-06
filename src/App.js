@@ -1,8 +1,37 @@
 import React, {useState} from "react";
 import ModalWindow from './ModalWindow';
+import AllGallery from "./AllGallery";
+import Adds from "./Adds";
+import WebApps from "./WebApps";
+import WebPortals from "./WebPortals";
+import DBs from "./DBs";
+import Finishing from "./Finishing";
+import Monitoring from "./Monitoring";
 
 function App() {
   const [showModal, setShowModal] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState('All');
+
+const renderComponent = () => {
+  switch (selectedCategory) {
+    case 'All':
+      return <AllGallery />;
+    case 'Adds':
+      return <Adds />;
+    case 'WebApps':
+      return <WebApps />;
+    case 'WebPortals':
+      return <WebPortals />;
+    case 'DBs':
+      return <DBs />;
+    case 'Finishing':
+      return <Finishing />;
+    case 'Monitoring':
+      return <Monitoring />;
+    default:
+      return <AllGallery />;
+  }
+};
   
   const handleOpenModal = () => {
     setShowModal(true)
@@ -91,6 +120,69 @@ function App() {
             Детальней готовы обсудить при
             <span style={{ color: "#4824ff", cursor: "pointer" }}
             onClick={handleOpenModal}> личной переписке</span> .</p>
+        </div>
+        <div className="portfolio-block">
+          <div className="first-block">
+            <h1 className="main-title">Портфолио</h1>
+            <div style={{ position: "absolute", marginLeft: "-660px" }}>
+              <p className="gradient-part-one"></p>
+              <p className="title-border">Портф</p>
+            </div>
+            <div style={{ position: "absolute", marginLeft: "620px" }}>
+              <p className="gradient-part-two"></p>
+              <p className="title-border">Фолио</p>
+            </div>
+            <img className="array-icon" src='./icons/array.png' draggable="false" />
+          </div>
+
+          <div style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
+            <p 
+              className={`tag ${selectedCategory === 'All' ? 'selected' : ''}`}
+              onClick={() => setSelectedCategory('All')}
+            >
+              Все работы
+            </p>
+            <p 
+              className={`tag ${selectedCategory === 'Adds' ? 'selected' : ''}`}
+              onClick={() => setSelectedCategory('Adds')}
+            >
+              Рекламные лендинги
+            </p>
+            <p 
+              className={`tag ${selectedCategory === 'WebApps' ? 'selected' : ''}`}
+              onClick={() => setSelectedCategory('WebApps')}
+            >
+              Веб-приложения
+            </p>
+            <p 
+              className={`tag ${selectedCategory === 'WebPortals' ? 'selected' : ''}`}
+              onClick={() => setSelectedCategory('WebPortals')}
+            >
+              Веб-порталы
+            </p>
+            <p 
+              className={`tag ${selectedCategory === 'DBs' ? 'selected' : ''}`}
+              onClick={() => setSelectedCategory('DBs')}
+            >
+              Работа с базами данных
+            </p>
+            <p 
+              className={`tag ${selectedCategory === 'Finishing' ? 'selected' : ''}`}
+              onClick={() => setSelectedCategory('Finishing')}
+            >
+              Доработка ваших решений
+            </p>
+            <p 
+              className={`tag ${selectedCategory === 'Monitoring' ? 'selected' : ''}`}
+              onClick={() => setSelectedCategory('Monitoring')}
+            >
+              Мониторинг
+            </p>
+          </div>
+
+          <div className="content" style={{ marginLeft: "-5vw", marginRight: "-5vw" }}>
+            {renderComponent()}
+          </div>
         </div>
     </div>
   );
