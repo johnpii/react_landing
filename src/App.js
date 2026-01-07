@@ -200,7 +200,7 @@ const renderComponent = () => {
               <p className="gradient-part-two"></p>
               <p className="title-border">Фолио</p>
             </div>
-            <img className="array-icon" src='./icons/array.png' draggable="false" />
+            <img className="array-icon" src='./icons/Array.png' draggable="false" />
           </div>
 
           <div style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
@@ -281,6 +281,41 @@ const renderComponent = () => {
             <p className="array-next-icon" onClick={btnNextReview}/></p>
           </div>
         </div>
+
+        <div className="guarantees-block">
+          <h1 style={{ fontSize: "52px", paddingBottom: "20px" }}>
+            ГАРАНТИИ
+          </h1>
+          
+          <ol className="guarantees-points">
+            <li className="point">
+              Оплату принимаем через платёжную систему
+              <span style={{ color: "#4824ff" }}> Название *</span>,
+              которая контролирует <br/>безопасность денежных
+              переводов.
+            </li>
+            <li className="point">
+              Убедиться в нашей ответственности и профессионализме
+              можно <span style={{ color: "#4824ff" }}> написав
+              клиентам</span>, <br/> оставившим отзывы
+              <span style={{ color: "#4824ff" }}> лично </span>
+              в любой момент (отзывы клиентов выше).
+            </li>
+            <li className="point">
+              Все <span style={{ color: "#4824ff" }}> авторские
+              права </span>на работу переходят заказчику после
+              выполнения заказа.
+            </li>
+            <li className="point">
+              В своих работах используем материалы строго
+              <span style={{ color: "#4824ff" }}> разрешенные
+              для личного<br/> и коммерческого
+              использования</span>.
+            </li>
+          </ol>
+        </div>
+
+        <div className="footer">© Web Point</div>
     </div>
   );
 }

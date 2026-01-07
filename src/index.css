@@ -442,3 +442,45 @@ header  a:hover {
     scale: 0.37;
     height: 50px;
 }
+
+.guarantees-block {
+  height: 540px;
+  font-size: 26px;
+}
+
+.guarantees-points {
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+.guarantees-points li {
+  position: relative;
+  padding-left: 60px;
+}
+
+.guarantees-points li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  transform: translateY(-10%);
+  width: 40px;
+  height: 40px;
+  background-image: url(/public/icons/Guarantee.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-left: -20px;
+}
+
+.point {
+  margin-top: 35px;
+}
+
+.footer {
+  height: 80px;
+  text-align: center;
+  font-size: 14px;
+  border-top: 1px solid #cec4fe50;
+  margin-left: -5vw;
+  margin-right: -5vw;
+  align-items: center;
+}
