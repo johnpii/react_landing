@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useRef} from "react";
-import ModalWindow from './ModalWindow';
+import ModalWindow from './ModalWindow/ModalWindow';
 import AllGallery from "./AllGallery";
-import Adds from "./Adds";
+import Adds from "./Adds/Adds";
 import WebApps from "./WebApps";
 import WebPortals from "./WebPortals";
 import DBs from "./DBs";
