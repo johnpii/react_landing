@@ -109,30 +109,53 @@ const renderComponent = () => {
     };
   }, []);
 
+  const [scroll, setScroll] = useState(0);
+
+  const scrollUp = () => {
+    setScroll(window.scrollY);
+  };
+
+  const upButton = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", scrollUp);
+  }, []);
+
+  const toBlock = (height) => {
+    window.scrollTo({ top: height, left: 0, behavior: 'smooth' });
+  };
+
   return (
-    <div className="App">
+    <div>
         <header>
+          <div className="navigation">
             <div className="menu">
-              <a>О нас</a>
-              <a>Услуги</a>
-              <a>Наши клиенты</a>
-              <a>Отзывы</a>
-              <a>Гарантии</a>
+              <a onClick={upButton}>О нас</a>
+              <a onClick={(e) => toBlock(e.target.getAttribute('height'))} height="700">Услуги</a>
+              <a onClick={(e) => toBlock(e.target.getAttribute('height'))} height="1235">Наши работы</a>
+              <a onClick={(e) => toBlock(e.target.getAttribute('height'))} height="1950">Отзывы</a>
+              <a onClick={(e) => toBlock(e.target.getAttribute('height'))} height="2550">Гарантии</a>
             </div>
 
-            <button onClick={handleOpenModal} className="btn">Связаться</button>
-            <ModalWindow show={showModal} onClose={handleCloseModal}>
-                <h2 style={{color: "#4824ff", fontSize: "40px"}}>Контакты</h2>
-                <p style={{fontSize: "22px"}}>Вы можете связаться с нами в Telegram <br/> или WhatsApp 👇</p>
-            </ModalWindow>
+            <div className="header-buttons">
+              <button onClick={handleOpenModal} className="btn">Связаться</button>
 
-            <a href="https://t.me" target="_blank" className="icon telegram"/>
-            <a href="https://wa.me" target="_blank" className="icon whatsapp"/>
+              <a href="https://t.me" target="_blank" className="icon telegram"/>
+              <a href="https://wa.me" target="_blank" className="icon whatsapp"/>
 
-            <div className="switch">
-              <div className="theme light"></div>
+              <div className="switch">
+                <div className="theme light"></div>
+              </div>
             </div>
+          </div>
         </header>
+
+        <ModalWindow show={showModal} onClose={handleCloseModal}>
+          <h2 style={{color: "#4824ff", fontSize: "40px"}}>Контакты</h2>
+          <p style={{fontSize: "22px"}}>Вы можете связаться с нами в Telegram <br/> или WhatsApp 👇</p>
+        </ModalWindow>
 
         <div className="welcome-block">
           <div className="first-block">
@@ -316,6 +339,11 @@ const renderComponent = () => {
         </div>
 
         <div className="footer">© Web Point</div>
+
+        <button 
+          className={scroll < 1960 ? "" : "btn-up"}
+          onClick={upButton}>
+        </button>
     </div>
   );
 }
