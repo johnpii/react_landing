@@ -8,8 +8,33 @@ import DBs from "./DBs";
 import Finishing from "./Finishing";
 import Monitoring from "./Monitoring";
 import Review from "./Review";
+import Theme from "./Theme";
 
 function App() {
+  const { theme, setTheme } = Theme();
+  const [isDarkTheme, setIsDarkTheme] = useState(() => {
+    const savedTheme = localStorage.getItem('theme');
+    return savedTheme === 'dark';
+  });
+
+  const toggleTheme = () => {
+    if (isDarkTheme) {
+      lightTheme();
+    } else {
+      darkTheme();
+    }
+    
+    setIsDarkTheme(!isDarkTheme);
+  };
+
+  const lightTheme = () => {
+    setTheme('light');
+  };
+
+  const darkTheme = () => {
+    setTheme('dark');
+  };
+
   const [showModal, setShowModal] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('All');
 
@@ -142,11 +167,12 @@ const renderComponent = () => {
             <div className="header-buttons">
               <button onClick={handleOpenModal} className="btn">Связаться</button>
 
-              <a href="https://t.me" target="_blank" className="icon telegram"/>
-              <a href="https://wa.me" target="_blank" className="icon whatsapp"/>
+              <a href="https://t.me" target="_blank" className={theme === 'light' ? "icon telegram light" : "icon telegram dark"}/>
+              <a href="https://wa.me" target="_blank" className={theme === 'light' ? "icon whatsapp light" : "icon whatsapp dark"}/>
 
-              <div className="switch">
-                <div className="theme light"></div>
+              <div className="switch" onClick={toggleTheme}>
+                <div className={theme === 'light' ? "theme light" : "theme dark"}
+                  style={{ transform: isDarkTheme ? 'translateX(38px)' : 'translate(0)' }}></div>
               </div>
             </div>
           </div>
@@ -190,19 +216,19 @@ const renderComponent = () => {
               </span> по следующим направлениям: </p>
 
           <div style={{ display: "flex" }}>
-            <p className="tag"><p className="tag-icon"/>
+            <p className="tag"><p className={theme === 'light' ? "tag-icon icon-dark" : "tag-icon icon-light"}/>
             Рекламные лендинги</p>
-            <p className="tag"><p className="tag-icon"/>
+            <p className="tag"><p className={theme === 'light' ? "tag-icon icon-dark" : "tag-icon icon-light"}/>
             Веб-порталы</p>
-            <p className="tag"><p className="tag-icon"/>
+            <p className="tag"><p className={theme === 'light' ? "tag-icon icon-dark" : "tag-icon icon-light"}/>
             Веб-приложения</p>
-            <p className="tag"><p className="tag-icon"/>
+            <p className="tag"><p className={theme === 'light' ? "tag-icon icon-dark" : "tag-icon icon-light"}/>
             Мониторинг</p>
           </div>
           <div style={{ display: "flex", marginTop: "16px" }}>
-            <p className="tag"><p className="tag-icon"/>
+            <p className="tag"><p className={theme === 'light' ? "tag-icon icon-dark" : "tag-icon icon-light"}/>
             Работа с базами данных</p>
-            <p className="tag"><p className="tag-icon"/>
+            <p className="tag"><p className={theme === 'light' ? "tag-icon icon-dark" : "tag-icon icon-light"}/>
             Доработка ваших решений</p>
           </div>
 

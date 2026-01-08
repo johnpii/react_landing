@@ -8,6 +8,45 @@
   src: url("/public/Prata-Regular.ttf");
 }
 
+html[data-theme='light'] {
+  --main-background: #ffffff;
+  --header-background: #ffffffe1;
+  --service-background: #fbfaff;
+  
+  --main-text-color: black;
+  
+  --switch-background: #eeebff;
+  --theme-background: white;
+  
+  --title-border-color: #4824ff30;
+  
+  --main-elements-color: #eeebff;
+  --elements-color: #eeebff;
+  --elements-text-color: white;
+
+  --tag-text-color : #4824ff;
+  --selected-tag-background: #04001a;
+}
+
+html[data-theme='dark'] {
+  --main-background: #04001a;
+  --header-background: #04001ae1;
+  --service-background: #060026;
+  
+  --main-text-color: white;
+  
+  --switch-background: #120940;
+  --theme-background: #4824ff;
+  
+  --title-border-color: #eeebff25;
+  
+  --main-elements-color: #4824ff;
+  --elements-color: #080033;
+  --elements-text-color: black;
+
+  --tag-text-color: white;
+  --selected-tag-background: white;
+}
 
 body {
   margin-left: 5%;
@@ -17,6 +56,8 @@ body {
   font-family: 'Onest';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: var(--main-background);
+  color: var(--main-text-color);
 }
 
 code {
@@ -30,7 +71,7 @@ header {
   position: fixed;
   width: 90vw;
   padding: 0 5vw 0 5vw;
-  background: #ffffffe1;
+  background: var(--header-background);
   backdrop-filter: blur(8px);
   z-index: 1000;
 }
@@ -105,18 +146,28 @@ header  a:hover {
 .icon {
   height: 55px;
   border-radius: 50%;
-  background: black;
+  background: var(--main-text-color);
   cursor: pointer;
   transition: 0.3s;
   margin-right: 2%;
 }
 
-.icon.telegram {
+.icon.telegram.light,
+.icon.telegram.dark:hover {
   content: url(/public/icons/telegram_png.png);
 }
 
-.icon.whatsapp {
+.icon.telegram.dark {
+  content: url(/public/icons/telegram_png_dark.png);
+}
+
+.icon.whatsapp.light,
+.icon.whatsapp.dark:hover {
   content: url(/public/icons/whatsapp_png.png);
+}
+
+.icon.whatsapp.dark {
+  content: url(/public/icons/whatsapp_png_dark.png);
 }
 
 .icon:hover {
@@ -126,29 +177,33 @@ header  a:hover {
 
 .switch {
   width: 100px;
-  height: 55px;
+  height: 53px;
   border-radius: 55px;
-  background-color: #eeebff;
+  background-color: var(--switch-background);
+  border: 1px solid var(--main-elements-color);
   overflow: hidden;
+  cursor: pointer;
+  position: relative;
 }
 
 .theme {
   margin: 2px;
-  width: 51px;
-  height: 51px;
+  width: 48px;
+  height: 48px;
   border-radius: 55px;
-  background-color: black;
-  filter: invert();
-  transition: 0.5s ease-in-out;
+  background-color: var(--theme-background);
+  transition: transform 0.5s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .theme.light {
   content: url(/public/icons/sun-symbol.png);
 }
 
-.switch:hover > .theme.theme.light {
-  transform: rotate(45deg);
-
+.theme.dark {
+  content: url(/public/icons/moon-symbol.png);
 }
 
 .welcome-block {
@@ -176,7 +231,7 @@ header  a:hover {
     #4824ff,
     #4824ff,
     #85ebff,
-    #eeebff,
+    var(--main-elements-color),
     #85aeff,
     #4824ff,
     #4824ff,
@@ -219,7 +274,7 @@ header  a:hover {
   margin-left: -5vw;
   margin-right: -5vw;
   padding: 0 5vw;
-  background: #fbfaff;
+  background: var(--service-background);
   align-content: center;
 }
 
@@ -227,8 +282,8 @@ header  a:hover {
   display: flex;
   font-size: 24px;
   font-weight: 500;
-  background: #eeebff;
-  color: #4824ff;
+  background: var(--main-elements-color);
+  color: var(--tag-text-color);
   margin: 0 12px 0 0;
   padding: 8px 22px 8px 8px;
   border-radius: 24px;
@@ -238,10 +293,17 @@ header  a:hover {
   margin: -10px;
   padding: 0;
   position: relative;
-  content: url(/public/icons/check.png);
   background: none;
   scale: 0.33;
   height: 50px;
+}
+
+.service-block .icon-dark {
+  content: url(/public/icons/check.png);
+}
+
+.service-block .icon-light {
+  content: url(/public/icons/check_dark.png);
 }
 
 .portfolio-block {
@@ -258,7 +320,7 @@ header  a:hover {
   font-size: 56px;
   font-family: "Prata";
   font-weight: 500;
-  background: linear-gradient(to right, black, #4824ff);
+  background: linear-gradient(to right, var(--main-text-color), #4824ff);
   background-clip: text;
   color: transparent;
 }
@@ -274,18 +336,18 @@ header  a:hover {
   font-size: 56px;
   font-family: "Prata";
   font-weight: 500;
-  color: white;
+  color: var(--main-background);
   margin: 10px 0;
   text-shadow:
-    -1px -1px 0 #4824ff30,
-    1px  -1px 0 #4824ff30,
-    -1px  1px 0 #4824ff30,
-    1px   1px 0 #4824ff30;
+    -1px -1px 0 var(--main-border-color),
+    1px  -1px 0 var(--main-border-color),
+    -1px  1px 0 var(--main-border-color),
+    1px   1px 0 var(--main-border-color);
 }
 
 .gradient-part-one {
   position: absolute;
-  background: linear-gradient(to right, transparent, white);
+  background: linear-gradient(to right, transparent, var(--main-background));
   color: transparent;
   height: 70px;
   width: 200px;
@@ -293,19 +355,19 @@ header  a:hover {
 
 .gradient-part-two {
   position: absolute;
-  background: linear-gradient(to left, transparent, white);
+  background: linear-gradient(to left, transparent, var(--main-background));
   color: transparent;
   height: 70px;
   width: 200px;
 }
 
 .portfolio-block .tag {
-  background: #eeebff;
+  background: var(--elements-color);
   color: #4824ff;
   margin: 0 12px 0 0;
   padding: 8px 22px;
   border-radius: 24px;
-  border: 1px solid #eeebff;
+  border: 1px solid var(--elements-color);
   cursor: pointer;
   transition: all 0.5s ease-in-out;
 }
@@ -317,8 +379,8 @@ header  a:hover {
 }
 
 .portfolio-block .selected {
-  background: #04001a;
-  color: white;
+  background: var(--selected-tag-background);
+  color: var(--elements-text-color);
   border: 1px solid #4824ff;
 }
 
@@ -413,6 +475,7 @@ header  a:hover {
     height: 230px;
     width: 384px;
     background: white;
+    color: black;
     border-radius: 24px;
     margin: 0 18px;
 }
@@ -497,7 +560,7 @@ header  a:hover {
   height: 80px;
   text-align: center;
   font-size: 14px;
-  border-top: 1px solid #cec4fe50;
+  border-top: 1px solid var(--main-elements-color);
   margin-left: -5vw;
   margin-right: -5vw;
   align-items: center;
