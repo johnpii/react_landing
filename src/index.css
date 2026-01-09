@@ -1,3 +1,15 @@
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #4824ff;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #ffffff01;
+}
+
 @font-face {
   font-family: 'Onest';
   src: url("/public/Onest-Regular.ttf");
@@ -80,7 +92,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100px;
+  height: 13vh;
 }
 
 .menu {
@@ -105,6 +117,11 @@ header  a:hover {
 .header-buttons {
   display: flex;
   gap: 20px;
+}
+
+.header-buttons-mobile {
+  display: flex;
+  gap: 5vw;
 }
 
 .btn {
@@ -152,6 +169,21 @@ header  a:hover {
   margin-right: 2%;
 }
 
+.icon-mobile {
+  margin-right: 0;
+  height: 13.5vw;
+  width: 13.5vw;
+}
+
+.icon-menu {
+  border-radius: 50%;
+  background-color: var(--switch-background);
+  border: 1px solid var(--main-elements-color);
+  cursor: pointer;
+  height: 13.45vw;
+  width: 13.45vw;
+}
+
 .icon.telegram.light,
 .icon.telegram.dark:hover {
   content: url(/public/icons/telegram_png.png);
@@ -170,15 +202,23 @@ header  a:hover {
   content: url(/public/icons/whatsapp_png_dark.png);
 }
 
+.icon-menu.light {
+  content: url(/public/icons/menu.png);
+}
+
+.icon-menu.dark {
+  content: url(/public/icons/menu_dark.png);
+}
+
 .icon:hover {
   background: #4824ff;
   filter: drop-shadow(0px 0px 35px #4824ff40);
 }
 
 .switch {
-  width: 100px;
+  width: 102px;
   height: 53px;
-  border-radius: 55px;
+  border-radius: 13.5vw;
   background-color: var(--switch-background);
   border: 1px solid var(--main-elements-color);
   overflow: hidden;
@@ -186,16 +226,27 @@ header  a:hover {
   position: relative;
 }
 
+.switch-mobile {
+  width: 22vw;
+  height: 13.45vw;
+}
+
 .theme {
   margin: 2px;
   width: 48px;
   height: 48px;
-  border-radius: 55px;
+  border-radius: 13.5vw;
   background-color: var(--theme-background);
   transition: transform 0.5s ease-in-out;
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.theme-mobile {
+  margin: 0.5vw;
+  width: 12.45vw;
+  height: 12.45vw;
 }
 
 .theme.light {

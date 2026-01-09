@@ -11,6 +11,20 @@ import Review from "./Review";
 import Theme from "./Theme";
 
 function App() {
+  const [isPortrait, setIsPortrait] = useState(window.innerWidth > window.innerHeight);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsPortrait(window.innerWidth > window.innerHeight);
+    };
+
+    window.addEventListener("resize", handleResize);
+    
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const { theme, setTheme } = Theme();
   const [isDarkTheme, setIsDarkTheme] = useState(() => {
     const savedTheme = localStorage.getItem('theme');
@@ -155,27 +169,49 @@ const renderComponent = () => {
   return (
     <div>
         <header>
-          <div className="navigation">
-            <div className="menu">
-              <a onClick={upButton}>О нас</a>
-              <a onClick={(e) => toBlock(e.target.getAttribute('height'))} height="700">Услуги</a>
-              <a onClick={(e) => toBlock(e.target.getAttribute('height'))} height="1235">Наши работы</a>
-              <a onClick={(e) => toBlock(e.target.getAttribute('height'))} height="1950">Отзывы</a>
-              <a onClick={(e) => toBlock(e.target.getAttribute('height'))} height="2550">Гарантии</a>
-            </div>
+          {isPortrait ? (
+            <div className="navigation">
+              <div className="menu">
+                <a onClick={upButton}>О нас</a>
+                <a onClick={(e) => toBlock(e.target.getAttribute('height'))} height="700">Услуги</a>
+                <a onClick={(e) => toBlock(e.target.getAttribute('height'))} height="1235">Наши работы</a>
+                <a onClick={(e) => toBlock(e.target.getAttribute('height'))} height="1950">Отзывы</a>
+                <a onClick={(e) => toBlock(e.target.getAttribute('height'))} height="2550">Гарантии</a>
+              </div>
 
-            <div className="header-buttons">
-              <button onClick={handleOpenModal} className="btn">Связаться</button>
+              <div className="header-buttons">
+                <button onClick={handleOpenModal} className="btn">Связаться</button>
 
-              <a href="https://t.me" target="_blank" className={theme === 'light' ? "icon telegram light" : "icon telegram dark"}/>
-              <a href="https://wa.me" target="_blank" className={theme === 'light' ? "icon whatsapp light" : "icon whatsapp dark"}/>
+                <a href="https://t.me" target="_blank" className={theme === 'light' ? "icon telegram light" : "icon telegram dark"}/>
+                <a href="https://wa.me" target="_blank" className={theme === 'light' ? "icon whatsapp light" : "icon whatsapp dark"}/>
 
-              <div className="switch" onClick={toggleTheme}>
-                <div className={theme === 'light' ? "theme light" : "theme dark"}
-                  style={{ transform: isDarkTheme ? 'translateX(38px)' : 'translate(0)' }}></div>
+                <div className="switch" onClick={toggleTheme}>
+                  <div className={theme === 'light' ? "theme light" 
+                                                    : "theme dark"}
+                    style={{ transform: isDarkTheme ? 'translateX(34px)' 
+                                                    : 'translateX(0)' }}></div>
+                </div>
+              </div>
+            </div> )
+          : ( 
+            <div className="navigation">
+              <div className="switch switch-mobile" onClick={toggleTheme}>
+                  <div className={theme === 'light' ? "theme theme-mobile light" 
+                                                    : "theme theme-mobile dark"}
+                    style={{ transform: isDarkTheme ? 'translateX(8.6vw)' 
+                                                    : 'translateX(0)' }}></div>
+              </div>
+
+              <div className="header-buttons-mobile">
+                <a href="https://t.me" target="_blank" className={theme === 'light' ? "icon icon-mobile telegram light" 
+                                                                                    : "icon icon-mobile telegram dark"}/>
+                <a href="https://wa.me" target="_blank" className={theme === 'light' ? "icon icon-mobile whatsapp light" 
+                                                                                    : "icon icon-mobile whatsapp dark"}/>
+                <a className={theme === 'light' ? "icon-menu light" 
+                                                : "icon-menu dark"}/>                                                                    
               </div>
             </div>
-          </div>
+          )}
         </header>
 
         <ModalWindow show={showModal} onClose={handleCloseModal}>
