@@ -372,8 +372,12 @@ header  a:hover {
   align-content: center;
 }
 
+  .service-block.mobile {
+    height: 200vw;
+  }
+
 .service-block .tag {
-  display: flex;
+  display: inline-flex;
   font-size: 24px;
   font-weight: 500;
   background: var(--main-elements-color);
@@ -383,6 +387,11 @@ header  a:hover {
   border-radius: 24px;
 }
 
+  .service-block .tag.mobile {
+    font-size: 4.5vw;
+    margin-bottom: 10px;
+  }
+
 .service-block .tag .tag-icon {
   margin: -10px;
   padding: 0;
@@ -391,6 +400,10 @@ header  a:hover {
   scale: 0.33;
   height: 50px;
 }
+
+  .service-block .tag .tag-icon.mobile {
+    height: 38px;
+  }
 
 .service-block .icon-dark {
   content: url(/public/icons/check.png);

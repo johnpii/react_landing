@@ -290,30 +290,38 @@ function App() {
             </div>
           </div>
         )}
-        <div className="service-block" draggable="false">
-          <h1 style={{ fontSize: "52px" }}>УСЛУГИ</h1>
-          <p style={{ fontSize: "27px" }}>Coздаём
+
+        
+        <div className={ isPortrait ? "service-block" : "service-block mobile" } draggable="false">
+          <h1 style={{ fontSize: isPortrait ? '52px' : '10vw' }}>УСЛУГИ</h1>
+          <p style={{ fontSize: isPortrait ? '27px' : '6vw' }}>Coздаём
             <span style={{ color: "#4824ff" }}> разработки 
               </span> по следующим направлениям: </p>
 
-          <div style={{ display: "flex" }}>
-            <p className="tag"><p className={theme === 'light' ? "tag-icon icon-dark" : "tag-icon icon-light"}/>
+          <div style={{ display: isPortrait ? "flex" : '' }}>
+            <p className={ isPortrait ? "tag" : "tag mobile" }><p className={`tag-icon ${theme === 'light' ? "tag-icon icon-dark" : "tag-icon icon-light"}
+                                                                                       ${isPortrait ? '' : 'mobile'}`}/>
             Рекламные лендинги</p>
-            <p className="tag"><p className={theme === 'light' ? "tag-icon icon-dark" : "tag-icon icon-light"}/>
+            <p className={ isPortrait ? "tag" : "tag mobile" }><p className={`tag-icon ${theme === 'light' ? "tag-icon icon-dark" : "tag-icon icon-light"}
+                                                                                       ${isPortrait ? '' : 'mobile'}`}/>
             Веб-порталы</p>
-            <p className="tag"><p className={theme === 'light' ? "tag-icon icon-dark" : "tag-icon icon-light"}/>
+            <p className={ isPortrait ? "tag" : "tag mobile" }><p className={`tag-icon ${theme === 'light' ? "tag-icon icon-dark" : "tag-icon icon-light"}
+                                                                                       ${isPortrait ? '' : 'mobile'}`}/>
             Веб-приложения</p>
-            <p className="tag"><p className={theme === 'light' ? "tag-icon icon-dark" : "tag-icon icon-light"}/>
+            <p className={ isPortrait ? "tag" : "tag mobile" }><p className={`tag-icon ${theme === 'light' ? "tag-icon icon-dark" : "tag-icon icon-light"}
+                                                                                       ${isPortrait ? '' : 'mobile'}`}/>
             Мониторинг</p>
           </div>
-          <div style={{ display: "flex", marginTop: "16px" }}>
-            <p className="tag"><p className={theme === 'light' ? "tag-icon icon-dark" : "tag-icon icon-light"}/>
+          <div style={{ display: isPortrait ? "flex" : '', marginTop: isPortrait ? '16px' : ''}}>
+            <p className={ isPortrait ? "tag" : "tag mobile" }><p className={`tag-icon ${theme === 'light' ? "tag-icon icon-dark" : "tag-icon icon-light"}
+                                                                                       ${isPortrait ? '' : 'mobile'}`}/>
             Работа с базами данных</p>
-            <p className="tag"><p className={theme === 'light' ? "tag-icon icon-dark" : "tag-icon icon-light"}/>
+            <p className={ isPortrait ? "tag" : "tag mobile" }><p className={`tag-icon ${theme === 'light' ? "tag-icon icon-dark" : "tag-icon icon-light"}
+                                                                                       ${isPortrait ? '' : 'mobile'}`}/>
             Доработка ваших решений</p>
           </div>
 
-          <p style={{ fontSize: "27px" }}>Открыты для обсуждения
+          <p style={{ fontSize: isPortrait ? "27px" : '6vw' }}>Открыты для обсуждения
             создания дизайна и по другим направлениям. <br/>
             Детальней готовы обсудить при
             <span style={{ color: "#4824ff", cursor: "pointer" }}
