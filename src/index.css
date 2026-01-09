@@ -12,12 +12,12 @@
 
 @font-face {
   font-family: 'Onest';
-  src: url("/public/Onest-Regular.ttf");
+  src: url("/public/fonts/Onest-Regular.ttf");
 }
 
 @font-face {
   font-family: 'Prata';
-  src: url("/public/Prata-Regular.ttf");
+  src: url("/public/fonts/Prata-Regular.ttf");
 }
 
 html[data-theme='light'] {

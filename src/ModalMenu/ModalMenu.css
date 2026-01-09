@@ -1,0 +1,48 @@
+.modal-menu-backdrop {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-end;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    z-index: 1000;
+}
+
+.modal-menu-backdrop.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-menu-content {
+    display: flex;
+    flex-direction: column;
+    top: 100px;
+    right: 10vw;
+    position: relative;
+    background: white;
+    color: black;
+    border-radius: 16px;
+    width: 50vw;
+    height: 84vw;
+    font-size: 7vw;
+    border: 3px solid #eeebff;
+    line-height: 12vw;
+    transform: translateY(-2vh);
+    transition: transform 0.5s ease;
+    z-index: 1001;
+}
+
+.modal-menu-content a {
+  padding: 1vw 6vw 1vw 6vw;
+  border-bottom: 0.5vw solid #eeebff50;
+}
+
+.modal-menu-content a:last-child {
+  border-bottom: none;
+}
+
+.modal-menu-backdrop.show .modal-menu-content {
+    transform: translateY(0);
+}

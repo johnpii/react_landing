@@ -9,6 +9,7 @@ import Finishing from "./Finishing";
 import Monitoring from "./Monitoring";
 import Review from "./Review";
 import Theme from "./Theme";
+import ModalMenu from "./ModalMenu/ModalMenu";
 
 function App() {
   const [isPortrait, setIsPortrait] = useState(window.innerWidth > window.innerHeight);
@@ -49,29 +50,30 @@ function App() {
     setTheme('dark');
   };
 
-  const [showModal, setShowModal] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const renderComponent = () => {
+    switch (selectedCategory) {
+      case 'All':
+        return <AllGallery />;
+      case 'Adds':
+        return <Adds />;
+      case 'WebApps':
+        return <WebApps />;
+      case 'WebPortals':
+        return <WebPortals />;
+      case 'DBs':
+        return <DBs />;
+      case 'Finishing':
+        return <Finishing />;
+      case 'Monitoring':
+        return <Monitoring />;
+      default:
+        return <AllGallery />;
+    }
+  };
 
-const renderComponent = () => {
-  switch (selectedCategory) {
-    case 'All':
-      return <AllGallery />;
-    case 'Adds':
-      return <Adds />;
-    case 'WebApps':
-      return <WebApps />;
-    case 'WebPortals':
-      return <WebPortals />;
-    case 'DBs':
-      return <DBs />;
-    case 'Finishing':
-      return <Finishing />;
-    case 'Monitoring':
-      return <Monitoring />;
-    default:
-      return <AllGallery />;
-  }
-};
+  const [showModal, setShowModal] = useState(false);
+  const [showModalMenu, setShowModalMenu] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState('All');
   
   const handleOpenModal = () => {
     setShowModal(true)
@@ -79,6 +81,14 @@ const renderComponent = () => {
 
   const handleCloseModal = () => {
     setShowModal(false)
+  }
+
+  const handleOpenModalMenu = () => {
+    setShowModalMenu(true)
+  }
+
+  const handleCloseModalMenu = () => {
+    setShowModalMenu(false)
   }
 
   const containerRef = useRef(null);
@@ -188,7 +198,7 @@ const renderComponent = () => {
                 <div className="switch" onClick={toggleTheme}>
                   <div className={theme === 'light' ? "theme light" 
                                                     : "theme dark"}
-                    style={{ transform: isDarkTheme ? 'translateX(34px)' 
+                    style={{ transform: isDarkTheme ? 'translateX(39px)' 
                                                     : 'translateX(0)' }}></div>
                 </div>
               </div>
@@ -207,12 +217,20 @@ const renderComponent = () => {
                                                                                     : "icon icon-mobile telegram dark"}/>
                 <a href="https://wa.me" target="_blank" className={theme === 'light' ? "icon icon-mobile whatsapp light" 
                                                                                     : "icon icon-mobile whatsapp dark"}/>
-                <a className={theme === 'light' ? "icon-menu light" 
+                <a onClick={handleOpenModalMenu} className={theme === 'light' ? "icon-menu light" 
                                                 : "icon-menu dark"}/>                                                                    
               </div>
             </div>
           )}
         </header>
+
+        <ModalMenu show={showModalMenu} onClose={handleCloseModalMenu}>
+          <a onClick={upButton}>О нас</a>
+          <a onClick={(e) => toBlock(e.target.getAttribute('height'))} height="700">Услуги</a>
+          <a onClick={(e) => toBlock(e.target.getAttribute('height'))} height="1235">Наши работы</a>
+          <a onClick={(e) => toBlock(e.target.getAttribute('height'))} height="1950">Отзывы</a>
+          <a onClick={(e) => toBlock(e.target.getAttribute('height'))} height="2550">Гарантии</a>
+        </ModalMenu>
 
         <ModalWindow show={showModal} onClose={handleCloseModal}>
           <h2 style={{color: "#4824ff", fontSize: "40px"}}>Контакты</h2>

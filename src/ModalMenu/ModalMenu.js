@@ -1,7 +1,7 @@
 import React, {useState, useCallback, useEffect} from "react";
-import './ModalWindow.css'
+import './ModalMenu.css'
 
-const ModalWindow = ({show, onClose, children}) => {
+const ModalMenu = ({show, onClose, children}) => {
     const [isVisible, setIsVisible] = useState(false);
 
     const handleKeyDown = useCallback((event) => {
@@ -30,24 +30,13 @@ const ModalWindow = ({show, onClose, children}) => {
 
 
     return (
-    <div className={`modal-backdrop ${show ? 'show' : ''}`}
+    <div className={`modal-menu-backdrop ${show ? 'show' : ''}`}
         style={{ display: isVisible }} onClick={onClose}>
-        <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button onClick={onClose} className="modal-close-button" aria-label="Close modal"></button>
+        <div className="modal-menu-content" onClick={(e) => e.stopPropagation()}>
             {children}
-            <div style={{display: "flex"}}>
-                <a href="https://t.me/" target="_blank" className="social-button">
-                    <span className="social-icon telegram"></span>
-                    <span>Telegram</span>
-                </a>
-                <a href="https://wa.me/" target="_blank" className="social-button">
-                    <span className="social-icon whatsapp"></span>
-                    <span>WhatsApp</span>
-                </a>
-            </div>
         </div>
     </div>
 )
 };
 
-export default ModalWindow;
+export default ModalMenu;
