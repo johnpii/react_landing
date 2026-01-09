@@ -547,11 +547,14 @@ header  a:hover {
   border-radius: 28px;
 }
 
+  .review-block.mobile {
+    height: 168vw;
+  }
+
 .review-block h1 {
   color: white;
   text-align: center;
   padding-top: 36px;
-  font-size: 50px;
 }
 
 .review-block .description {
@@ -561,6 +564,14 @@ header  a:hover {
   font-size: 22px;
   line-height: 32px;
 }
+
+  .review-block .description.mobile {
+    text-align: left;
+    margin-top: -4vw;
+    font-size: 4.7vw;
+    line-height: 6.5vw;
+    margin: 7vw;
+  }
 
 .review-block .selecting {
   background: white;
@@ -576,6 +587,12 @@ header  a:hover {
   width: 1260px;
 }
 
+  .review-carousel.mobile {
+    width: 100vw;
+    margin-left: -5vw;
+    margin-right: -5vw;
+  }
+
 .review-container {
   display: flex;
   overflow-x: scroll;
@@ -583,36 +600,34 @@ header  a:hover {
   overflow: hidden;
 }
 
+  .review-container.mobile {
+    width: 100vw;
+    margin: -8vw;
+  }
+
 .next-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 55px;
   height: 55px;
   border-radius: 50%;
   background: white;
   cursor: pointer;
   transition: 0.7s;
-  margin: 16px 0 0 10px;
-  border: none;
-  padding: 0;
-}
-
-.next-button .array-next-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
+  margin: 1vw 0.2vw 1vw 0.2vw;
 }
 
+  .next-button.mobile {
+    scale: 0.9;
+  }
+
 .array-next-icon {
-  background-image: url(/public/icons/right-arrow.png);
-  background-size: 50%;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
+  content: url(/public/icons/right-arrow.png);
+  height: 50px;
+  margin: 0;
+  padding: 0;
+  display: block;
 }
 
 .next-button:hover {
@@ -627,6 +642,11 @@ header  a:hover {
   min-width: 420px;
 }
 
+  .review-card.mobile {
+    min-width: 100vw;
+
+  }
+
 .review-content {
     height: 230px;
     width: 384px;
@@ -636,18 +656,30 @@ header  a:hover {
     margin: 0 18px;
 }
 
+  .review-content.mobile {
+    scale: 0.9;
+    width: 90vw;
+    height: 72vw;
+    margin: 5vw;
+  }
+
 .review-block .review {
     margin-top: auto;
-    font-size: 19px;
-    line-height: 27px;
-    width: 90%;
+    font-size: 20px;
+    line-height: 25px;
+    width: 95%;
 }
+
+  .review-block .review.mobile {
+    font-size: 5.3vw;
+    line-height: 6.7vw;
+  }
 
 .review-block .link {
     display: flex;
     position: right;
     height: 40px;
-    width: 80px;
+    width: 70px;
     background: black;
     border-radius: 24px;
     cursor: pointer;

@@ -1,18 +1,22 @@
 import React from 'react';
+import Resize from './Resize';
 
 const Review = (props) => {
+  const isPortrait = Resize();
+
   return (
-    <div className="review-card">
-      <div className="review-content">
-        <div style={{ padding: "0 20px 0 30px" }}>
-          <div style={{ display: "flex", alignItems: "center" }}>
-            <h2 style={{ width: "90%" }}>{props.name}</h2>
+    <div className={ isPortrait ? "review-card" : "review-card mobile" }>
+      <div className={ isPortrait ? "review-content" : "review-content mobile" }>
+        <div style={{ padding: "10px 20px 0 25px" }}>
+          <div style={{ display: "flex", placeItems: "center",
+                                        justifyContent: "space-between" }}>
+            <h2 style={{ fontSize: isPortrait ? "" : "7vw" }}>{props.name}</h2>
             <a className="link" href={props.link} target="_blank">
               <p className="telegram-icon"/>
               <p className="array-corner-icon"/>
             </a>
           </div>
-          <p className="review">{props.text}</p>
+          <p className={ isPortrait ? "review" : "review mobile" }>{props.text}</p>
         </div>
       </div>
     </div>

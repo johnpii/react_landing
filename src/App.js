@@ -407,20 +407,20 @@ function App() {
           </div>
         </div>
 
-        <div className="review-block">
-          <h1>ОТЗЫВЫ</h1>
-          <p className="description">
+        <div className={ isPortrait ? "review-block" : "review-block mobile" }>
+          <h1 style={{ fontSize: isPortrait ? "50px" : "10vw" }}>ОТЗЫВЫ</h1>
+          <p className={ isPortrait ? "description" : "description mobile"}>
             Отзывы клиентов, написанные со своих
-            <span className="selecting"> личных аккаунтов </span>
+            <span className="selecting"> личных аккаунтов </span>
             Телеграм. Всё проверено! <br /> Любой отзыв
-            можно <span className="selecting"> открыть </span> в
-            Телеграм и <span className="selecting"> спросить </span> об
+            можно<span className="selecting"> открыть </span>в
+            Телеграм и <span className="selecting"> спросить </span>об
             впечатлениях работы с нами <br />
             у создателя отзыва лично.
           </p>
 
-          <div className="review-carousel">
-            <div className="review-container" ref={containerRef}>
+          <div className={ isPortrait ? "review-carousel" : "review-carousel mobile" }>
+            <div className={ isPortrait ? "review-container" : "review-container mobile" } ref={containerRef}>
               {reviews.slice(-visibleReviews)}
               {reviews}
               {reviews.slice(0, visibleReviews)}
@@ -428,10 +428,10 @@ function App() {
           </div>
 
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <p className="next-button"
+            <p className={ isPortrait ? "next-button" : "next-button mobile" }
             style={{ transform: "rotate(180deg)" }}>
             <p className="array-next-icon" onClick={btnPrevReview}/></p>
-            <p className="next-button">
+            <p className={ isPortrait ? "next-button" : "next-button mobile" }>
             <p className="array-next-icon" onClick={btnNextReview}/></p>
           </div>
         </div>
