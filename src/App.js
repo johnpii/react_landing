@@ -10,22 +10,10 @@ import Monitoring from "./Monitoring";
 import Review from "./Review";
 import Theme from "./Theme";
 import ModalMenu from "./ModalMenu/ModalMenu";
+import Resize from "./Resize";
 
 function App() {
-  const [isPortrait, setIsPortrait] = useState(window.innerWidth > window.innerHeight);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsPortrait(window.innerWidth > window.innerHeight);
-    };
-
-    window.addEventListener("resize", handleResize);
-    
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
+  const isPortrait = Resize();
   const { theme, setTheme } = Theme();
   const [isDarkTheme, setIsDarkTheme] = useState(() => {
     const savedTheme = localStorage.getItem('theme');
@@ -233,36 +221,75 @@ function App() {
         </ModalMenu>
 
         <ModalWindow show={showModal} onClose={handleCloseModal}>
-          <h2 style={{color: "#4824ff", fontSize: "40px"}}>Контакты</h2>
-          <p style={{fontSize: "22px"}}>Вы можете связаться с нами в Telegram <br/> или WhatsApp 👇</p>
+          <h2 style={{color: "#4824ff", fontSize: isPortrait ? "40px" : '15vw',
+                                          marginTop: isPortrait ? '' : '0'
+          }}>Контакты</h2>
+          {isPortrait ? (
+            <p style={{fontSize: "22px"}}>Вы можете связаться с нами в Telegram <br/> или WhatsApp 👇</p>
+            ) : (
+            <p style={{fontSize: "33px"}}>Вы можете связаться с нами в Telegram <br/> или WhatsApp 👇</p>)
+        }
         </ModalWindow>
 
-        <div className="welcome-block">
-          <div className="first-block">
-            <h1>Веб-сдудия <span className="title">Web Point</span></h1>
-            
-            <h2 style={{ marginBottom: "7%", marginTop: "7%" }}>
-              Создаём <span style={{ color: "#4824ff" }}>продаваемый</span>
-              <br />
-              и <span style={{ color: "#4824ff" }}>уникальный</span>
-              <br />
-              разработка под ваши запросы
-            </h2>
-            
-            <h3>
-              Занимаемся веб-разработкой
-              <br />
-              на протяжении <span style={{ color: "#4824ff" }}>9 лет</span>
-            </h3>
-          </div>
+        {isPortrait ? ( 
+          <div className="welcome-block">
+            <div className="first-block">
+              <h1>Веб-сдудия <span className="title">Web Point</span></h1>
+              
+              <h2 style={{ marginBottom: "7%", marginTop: "7%" }}>
+                Создаём <span style={{ color: "#4824ff" }}>продаваемый</span>
+                <br />
+                и <span style={{ color: "#4824ff" }}>уникальный</span>
+                <br />
+                разработка под ваши запросы
+              </h2>
+              
+              <h3>
+                Занимаемся веб-разработкой
+                <br />
+                на протяжении <span style={{ color: "#4824ff" }}>9 лет</span>
+              </h3>
+            </div>
 
-          <div className="main-image-box">
-            <img 
-              src="./images/web.png" 
-              draggable="false" 
-            />
+            <div className="main-image-box">
+              <img 
+                className="image-layer"
+                src="./images/web.png" 
+                draggable="false" 
+              />
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="welcome-block mobile">
+            <div className="main-image-box mobile">
+              <img 
+                className="image-layer mobile"
+                src="./images/web.png" 
+                draggable="false" 
+              />
+            </div>
+
+            <div className="first-block mobile">
+              <h1>Веб-сдудия <span className="title">Web Point</span></h1>
+              
+              <h2 style={{ marginBottom: "7%", marginTop: "7%" }}>
+                Создаём <span style={{ color: "#4824ff" }}>продаваемый</span>
+                <br />
+                и <span style={{ color: "#4824ff" }}>уникальный</span>
+                <br />
+                разработка под ваши запросы
+              </h2>
+              
+              <h3>
+                Занимаемся веб-разработкой
+                <br />
+                на протяжении <span style={{ color: "#4824ff" }}>9 лет</span>
+              </h3>
+
+              <button onClick={handleOpenModal} className="btn mobile">Связаться</button>
+            </div>
+          </div>
+        )}
         <div className="service-block" draggable="false">
           <h1 style={{ fontSize: "52px" }}>УСЛУГИ</h1>
           <p style={{ fontSize: "27px" }}>Coздаём

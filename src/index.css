@@ -119,10 +119,10 @@ header  a:hover {
   gap: 20px;
 }
 
-.header-buttons-mobile {
-  display: flex;
-  gap: 5vw;
-}
+  .header-buttons-mobile {
+    display: flex;
+    gap: 5vw;
+  }
 
 .btn {
   position: relative;
@@ -140,6 +140,13 @@ header  a:hover {
   cursor: pointer;
   outline: none;
 }
+
+  .btn.mobile {
+    margin-right: 0;
+    margin-top: 5vw;
+    height: 18vw;
+    width: 60vw;
+  }
 
 .btn:hover {
   filter: drop-shadow(0px 0px 35px #4824ff40);
@@ -169,11 +176,11 @@ header  a:hover {
   margin-right: 2%;
 }
 
-.icon-mobile {
-  margin-right: 0;
-  height: 13.5vw;
-  width: 13.5vw;
-}
+  .icon-mobile {
+    margin-right: 0;
+    height: 13.5vw;
+    width: 13.5vw;
+  }
 
 .icon-menu {
   border-radius: 50%;
@@ -226,10 +233,10 @@ header  a:hover {
   position: relative;
 }
 
-.switch-mobile {
-  width: 22vw;
-  height: 13.45vw;
-}
+  .switch-mobile {
+    width: 22vw;
+    height: 13.45vw;
+  }
 
 .theme {
   margin: 2px;
@@ -243,11 +250,11 @@ header  a:hover {
   left: 0;
 }
 
-.theme-mobile {
-  margin: 0.5vw;
-  width: 12.45vw;
-  height: 12.45vw;
-}
+  .theme-mobile {
+    margin: 0.5vw;
+    width: 12.45vw;
+    height: 12.45vw;
+  }
 
 .theme.light {
   content: url(/public/icons/sun-symbol.png);
@@ -263,19 +270,37 @@ header  a:hover {
   place-items: center;
 }
 
+  .welcome-block.mobile {
+    padding-top: 14vh;
+    height: 86vh;
+    flex-direction: column;
+  }
+
 .welcome-block h1 {
   font-size: 52px;
 }
+
+  .welcome-block.mobile h1 {
+    font-size: 24px;
+  }
 
 .welcome-block h2 {
   font-size: 42px;
   font-weight: 450;
 }
 
+  .welcome-block.mobile h2 {
+    font-size: 16px;
+  }
+
 .welcome-block h3 {
   font-size: 30px;
   font-weight: 300;
 }
+
+  .welcome-block.mobile h2 {
+    font-size: 15px;
+  }
 
 .title {
   background: linear-gradient(to right,
@@ -307,11 +332,29 @@ header  a:hover {
   width: 55%;
 }
 
+  .welcome-block .first-block.mobile {
+    width: 100%;
+    text-align: center;
+  }
+
 .main-image-box {
   width: 45%;
   margin-top: -3%;
 }
 
+  .main-image-box.mobile {
+    width: 80vw;
+    margin: 0 5vw 0 5vw;
+  }
+
+.image-layer {
+  position: relative;
+}
+
+  .image-layer.mobile {
+    height: 60vw;
+  }
+  
 .main-image-box img {
   max-width: 100%;
   max-height: 500px;
