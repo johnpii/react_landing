@@ -423,6 +423,10 @@ header  a:hover {
   align-items: center;
 }
 
+  .portfolio-block .first-block.mobile {
+    margin-top: 5vw;
+  }
+
 .portfolio-block .main-title {
   font-size: 56px;
   font-family: "Prata";
@@ -432,12 +436,23 @@ header  a:hover {
   color: transparent;
 }
 
+  .portfolio-block .main-title.mobile {
+    font-size: 28px;
+    margin-left: 3vw;
+    z-index: 1;
+  }
+
 .portfolio-block .array-icon {
   margin: 0 20px;
   padding: 0;
   width: 75px;
   filter: drop-shadow(20px 20px 15px #4824ff25);
 }
+
+  .portfolio-block .array-icon.mobile {
+    margin: 0 10px 4px 8px;
+    width: 45px;
+  }
 
 .portfolio-block .title-border {
   font-size: 56px;
@@ -452,6 +467,10 @@ header  a:hover {
     1px   1px 0 var(--main-border-color);
 }
 
+  .portfolio-block .title-border.mobile {
+    font-size: 28px;
+  }
+
 .gradient-part-one {
   position: absolute;
   background: linear-gradient(to right, transparent, var(--main-background));
@@ -460,6 +479,11 @@ header  a:hover {
   width: 200px;
 }
 
+  .gradient-part-one.mobile {
+    height: 10vw;
+    width: 18vw;
+  }
+
 .gradient-part-two {
   position: absolute;
   background: linear-gradient(to left, transparent, var(--main-background));
@@ -467,6 +491,11 @@ header  a:hover {
   height: 70px;
   width: 200px;
 }
+
+  .gradient-part-two.mobile {
+    height: 10vw;
+    width: 18vw;
+  }
 
 .portfolio-block .tag {
   background: var(--elements-color);
@@ -479,6 +508,11 @@ header  a:hover {
   transition: all 0.5s ease-in-out;
 }
 
+  .portfolio-block .tag.mobile {
+    font-size: 15px;
+
+  }
+
 .portfolio-block .tag:hover {
   background: #4824ff;
   color: white;
@@ -490,6 +524,21 @@ header  a:hover {
   color: var(--elements-text-color);
   border: 1px solid #4824ff;
 }
+
+  .filter-scrollbar {
+    margin-left: -5vw;
+    margin-right: -5vw;
+    padding-left: 5vw;
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .filter-scrollbar::-webkit-scrollbar {
+    height: 0px;
+  }
 
 .review-block {
   margin: 80px 0px;

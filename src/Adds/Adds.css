@@ -5,12 +5,20 @@
   margin: 0 5vw;
 }
 
+  .image-gallery.mobile {
+    flex-direction: row;
+  }
+
 .image-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
   width: 100%;
 }
+
+  .image-grid.mobile {
+    max-height: 200px;
+  }
 
 .gallery-image {
   width: 100%;
@@ -19,6 +27,11 @@
   border-radius: 16px;
   cursor: pointer;
 }
+
+  .gallery-image.mobile {
+    height: 175px;
+    margin: 3vw;
+  }
 
 .show-more-button {
   display: flex;

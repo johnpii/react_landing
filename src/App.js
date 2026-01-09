@@ -291,7 +291,6 @@ function App() {
           </div>
         )}
 
-        
         <div className={ isPortrait ? "service-block" : "service-block mobile" } draggable="false">
           <h1 style={{ fontSize: isPortrait ? '52px' : '10vw' }}>УСЛУГИ</h1>
           <p style={{ fontSize: isPortrait ? '27px' : '6vw' }}>Coздаём
@@ -327,63 +326,80 @@ function App() {
             <span style={{ color: "#4824ff", cursor: "pointer" }}
             onClick={handleOpenModal}> личной переписке</span> .</p>
         </div>
+
         <div className="portfolio-block">
-          <div className="first-block">
-            <h1 className="main-title">Портфолио</h1>
-            <div style={{ position: "absolute", marginLeft: "-660px" }}>
-              <p className="gradient-part-one"></p>
-              <p className="title-border">Портф</p>
+          <div className={ isPortrait ? "first-block" : "first-block mobile" }>
+            <h1 className={ isPortrait ? "main-title" : "main-title mobile" }>Портфолио</h1>
+            <div style={{ position: "absolute", marginLeft: isPortrait ? "-660px" : "-80vw" }}>
+              <p className={ isPortrait ? "gradient-part-one" : "gradient-part-one mobile" }></p>
+              { isPortrait ? ( 
+                <p className="title-border">Портф</p>)
+              : (
+                <p className="title-border mobile">Пор</p>) }
             </div>
-            <div style={{ position: "absolute", marginLeft: "620px" }}>
-              <p className="gradient-part-two"></p>
-              <p className="title-border">Фолио</p>
+            <div style={{ position: "absolute", marginLeft: isPortrait ? "620px" : " 80vw" }}>
+              <p className={ isPortrait ? "gradient-part-two" : "gradient-part-two mobile" }></p>
+              { isPortrait ? ( 
+                <p className="title-border">фолио</p>)
+              : (
+                <p className="title-border mobile">лио</p>) }
             </div>
-            <img className="array-icon" src='./icons/Array.png' draggable="false" />
+            <img className={ isPortrait ? "array-icon" : "array-icon mobile"} 
+            src='./icons/Array.png' draggable="false" />
           </div>
 
-          <div style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
-            <p 
-              className={`tag ${selectedCategory === 'All' ? 'selected' : ''}`}
-              onClick={() => setSelectedCategory('All')}
-            >
-              Все работы
-            </p>
-            <p 
-              className={`tag ${selectedCategory === 'Adds' ? 'selected' : ''}`}
-              onClick={() => setSelectedCategory('Adds')}
-            >
-              Рекламные лендинги
-            </p>
-            <p 
-              className={`tag ${selectedCategory === 'WebApps' ? 'selected' : ''}`}
-              onClick={() => setSelectedCategory('WebApps')}
-            >
-              Веб-приложения
-            </p>
-            <p 
-              className={`tag ${selectedCategory === 'WebPortals' ? 'selected' : ''}`}
-              onClick={() => setSelectedCategory('WebPortals')}
-            >
-              Веб-порталы
-            </p>
-            <p 
-              className={`tag ${selectedCategory === 'DBs' ? 'selected' : ''}`}
-              onClick={() => setSelectedCategory('DBs')}
-            >
-              Работа с базами данных
-            </p>
-            <p 
-              className={`tag ${selectedCategory === 'Finishing' ? 'selected' : ''}`}
-              onClick={() => setSelectedCategory('Finishing')}
-            >
-              Доработка ваших решений
-            </p>
-            <p 
-              className={`tag ${selectedCategory === 'Monitoring' ? 'selected' : ''}`}
-              onClick={() => setSelectedCategory('Monitoring')}
-            >
-              Мониторинг
-            </p>
+          <div className={ isPortrait ? "" : "filter-scrollbar"}>
+            <div style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
+              <p 
+                className={`tag ${selectedCategory === 'All' ? 'selected' : ''}
+                                ${isPortrait ? "" : "mobile"}`}
+                onClick={() => setSelectedCategory('All')}
+              >
+                Все работы
+              </p>
+              <p 
+                className={`tag ${selectedCategory === 'Adds' ? 'selected' : ''}
+                                ${isPortrait ? "" : "mobile"}`}
+                onClick={() => setSelectedCategory('Adds')}
+              >
+                Рекламные лендинги
+              </p>
+              <p 
+                className={`tag ${selectedCategory === 'WebApps' ? 'selected' : ''}
+                                ${isPortrait ? "" : "mobile"}`}
+                onClick={() => setSelectedCategory('WebApps')}
+              >
+                Веб-приложения
+              </p>
+              <p 
+                className={`tag ${selectedCategory === 'WebPortals' ? 'selected' : ''}
+                                ${isPortrait ? "" : "mobile"}`}
+                onClick={() => setSelectedCategory('WebPortals')}
+              >
+                Веб-порталы
+              </p>
+              <p 
+                className={`tag ${selectedCategory === 'DBs' ? 'selected' : ''}
+                                ${isPortrait ? "" : "mobile"}`}
+                onClick={() => setSelectedCategory('DBs')}
+              >
+                Работа с базами данных
+              </p>
+              <p 
+                className={`tag ${selectedCategory === 'Finishing' ? 'selected' : ''}
+                                ${isPortrait ? "" : "mobile"}`}
+                onClick={() => setSelectedCategory('Finishing')}
+              >
+                Доработка ваших решений
+              </p>
+              <p 
+                className={`tag ${selectedCategory === 'Monitoring' ? 'selected' : ''}
+                                ${isPortrait ? "" : "mobile"}`}
+                onClick={() => setSelectedCategory('Monitoring')}
+              >
+                Мониторинг
+              </p>
+            </div>
           </div>
 
           <div className="content" style={{ marginLeft: "-5vw", marginRight: "-5vw" }}>

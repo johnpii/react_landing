@@ -1,10 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Carousel.css';
+import Resize from '../Resize';
 
 const importAll = (r) => r.keys().map(r);
 const images = importAll(require.context('/public/images/all', false, /\.(png|jpe?g|svg)$/));
 
 const Carousel = ({ direction }) => {
+  const isPortrait = Resize();
   const carouselRef = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
   const requestIdRef = useRef(null);
@@ -50,14 +52,14 @@ const Carousel = ({ direction }) => {
         <img 
           key={index} 
           src={image} 
-          className="carousel-image"
+          className={ isPortrait ? "carousel-image" : "carousel-image mobile" }
           onClick={() => setSelectedImage(image)}/>
       ))}
       {images.map((image, index) => (
         <img 
           key={index} 
           src={image} 
-          className="carousel-image"
+          className={ isPortrait ? "carousel-image" : "carousel-image mobile" }
           onClick={() => setSelectedImage(image)}/>
       ))}
     </div>
