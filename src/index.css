@@ -717,6 +717,11 @@ header  a:hover {
   font-size: 26px;
 }
 
+  .guarantees-block.mobile {
+    height: 240vw;
+    font-size: 6vw;
+  }
+
 .guarantees-points {
   list-style-type: none;
   padding-left: 20px;
@@ -726,6 +731,10 @@ header  a:hover {
   position: relative;
   padding-left: 60px;
 }
+
+  .guarantees-points.mobile li {
+    padding-left: 8vw;
+  }
 
 .guarantees-points li::before {
   content: '';
@@ -739,6 +748,10 @@ header  a:hover {
   background-repeat: no-repeat;
   margin-left: -20px;
 }
+
+  .guarantees-points.mobile li::before {
+    width: 9vw;
+  }
 
 .point {
   margin-top: 35px;
@@ -789,3 +802,8 @@ header  a:hover {
   background-size: 100% 100%;
   background-image: url(/public/icons/Array.png);
 }
+
+  .btn-up.mobile::before {
+    width: 15vw;
+    height: 15vw;
+  }

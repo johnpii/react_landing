@@ -60,7 +60,7 @@ const Adds = () => {
       </div>)
       : (
       <div>
-        <div className="filter-scrollbar" style={{ padding: "7vw" }}>
+        <div className="filter-scrollbar" style={{ padding: "2vw", margin: "0" }}>
           {renderImages()}
         </div>
         {selectedImage && (

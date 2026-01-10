@@ -330,14 +330,14 @@ function App() {
         <div className="portfolio-block">
           <div className={ isPortrait ? "first-block" : "first-block mobile" }>
             <h1 className={ isPortrait ? "main-title" : "main-title mobile" }>Портфолио</h1>
-            <div style={{ position: "absolute", marginLeft: isPortrait ? "-660px" : "-80vw" }}>
+            <div style={{ position: "absolute", marginLeft: isPortrait ? "-660px" : "-75vw" }}>
               <p className={ isPortrait ? "gradient-part-one" : "gradient-part-one mobile" }></p>
               { isPortrait ? ( 
                 <p className="title-border">Портф</p>)
               : (
                 <p className="title-border mobile">Пор</p>) }
             </div>
-            <div style={{ position: "absolute", marginLeft: isPortrait ? "620px" : " 80vw" }}>
+            <div style={{ position: "absolute", marginLeft: isPortrait ? "620px" : " 75vw" }}>
               <p className={ isPortrait ? "gradient-part-two" : "gradient-part-two mobile" }></p>
               { isPortrait ? ( 
                 <p className="title-border">фолио</p>)
@@ -436,12 +436,13 @@ function App() {
           </div>
         </div>
 
-        <div className="guarantees-block">
-          <h1 style={{ fontSize: "52px", paddingBottom: "20px" }}>
+        <div className={ isPortrait ? "guarantees-block" : "guarantees-block mobile" }>
+          <h1 style={{ fontSize: isPortrait ? "52px" : "10vw", 
+                        paddingBottom: isPortrait ? "20px" : "0" }}>
             ГАРАНТИИ
           </h1>
           
-          <ol className="guarantees-points">
+          <ol className={ isPortrait ? "guarantees-points" : "guarantees-points mobile" }>
             <li className="point">
               Оплату принимаем через платёжную систему
               <span style={{ color: "#4824ff" }}> Название *</span>,
@@ -472,7 +473,7 @@ function App() {
         <div className="footer">© Web Point</div>
 
         <button 
-          className={scroll < 1960 ? "" : "btn-up"}
+          className={scroll < 1960 ? "" : isPortrait ? "btn-up" : "btn-up mobile" }
           onClick={upButton}>
         </button>
     </div>
